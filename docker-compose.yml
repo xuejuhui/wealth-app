@@ -1,0 +1,14 @@
+version: "3"
+services:
+  inventory-service:
+    build: "./inventory"
+    volumes:
+      - ./inventory:/usr/src/app
+    ports:
+      - 7100:7100
+    environment:
+      - DB_URL=mongodb+srv://ray:123321xxX!@wealth.omzpi.azure.mongodb.net/inventory?retryWrites=true&w=majority
+  user-service:
+    build: "./user"
+    volumes:
+      - ./user:/usr/src/app
